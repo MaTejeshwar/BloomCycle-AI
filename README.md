@@ -121,4 +121,3 @@ Sustainability + Smart Technology
 ## 📄 License
 
 This project is for educational / hackathon purposes.
-Hackathon project demo build
