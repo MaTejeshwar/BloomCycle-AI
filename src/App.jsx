@@ -79,18 +79,19 @@ export default function App() {
               Contact
             </button>
 
-            <button
-              className="mode-toggle"
-              onClick={() =>
-                document.body.classList.toggle("dark-mode")
-              }
-            >
-              <span className="toggle-icon">☀</span>
-              <div className="toggle-pill">
-                <div className="toggle-circle"></div>
-              </div>
-              <span className="toggle-icon">☾</span>
-            </button>
+            {/* NEW SLIDER TOGGLE */}
+            <label className="switch">
+              <input
+                type="checkbox"
+                onChange={(e) =>
+                  document.body.classList.toggle(
+                    "dark-mode",
+                    e.target.checked
+                  )
+                }
+              />
+              <span className="slider"></span>
+            </label>
           </div>
         </header>
 

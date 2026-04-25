@@ -71,8 +71,7 @@ body {
   gap: 10px;
 }
 
-.tabs button,
-.mode-toggle {
+.tabs button {
   height: 40px;
   padding: 0 16px;
   border: none;
@@ -81,55 +80,75 @@ body {
   backdrop-filter: blur(12px);
   cursor: pointer;
   transition: 0.25s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.tabs button:hover,
-.mode-toggle:hover {
+.tabs button:hover {
   transform: translateY(-2px);
 }
 
-.mode-toggle {
-  gap: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-.toggle-icon {
-  font-size: 16px;
-  font-weight: bold;
-  color: #111827;
-}
-
-.toggle-pill {
-  width: 42px;
-  height: 20px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.35);
+/* NEW SLIDER TOGGLE */
+.switch {
   position: relative;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-.toggle-circle {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: white;
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  transition: all 0.25s ease;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgba(255,255,255,0.25);
+  transition: 0.4s;
+  border-radius: 34px;
+
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.2),
+    0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.dark-mode .toggle-circle {
-  left: 24px;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.dark-mode .toggle-icon {
-  color: white;
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
 }
+
+.slider:after {
+  content: "🌙";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  transition: 0.4s;
+}
+
+.switch input:checked + .slider:after {
+  content: "☀️";
+  left: 34px;
+}
+
+/* CARDS */
 
 .stats-grid {
   display: grid;
@@ -152,6 +171,8 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
+
+/* FORM + INPUTS */
 
 .waste-form,
 .dashboard-wrapper,
@@ -183,6 +204,8 @@ body {
   color: #64748b;
 }
 
+/* DASHBOARD */
+
 .dashboard-entry,
 .chat-response {
   padding: 18px;
@@ -192,43 +215,7 @@ body {
   border: 1px solid rgba(255,255,255,0.30);
 }
 
-.footer {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.analytics-bars {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.bar-item span {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.bar {
-  height: 16px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(12px);
-}
-
-.waste-bar {
-  width: 85%;
-}
-
-.revenue-bar {
-  width: 70%;
-}
-
-.recycle-bar {
-  width: 92%;
-}
+/* ANALYTICS */
 
 .analytics-bars {
   display: flex;
@@ -271,4 +258,13 @@ body {
 
 .recycle-fill {
   background: linear-gradient(90deg, #a78bfa, #8b5cf6);
+}
+
+/* FOOTER */
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
 }
